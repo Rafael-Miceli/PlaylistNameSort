@@ -68,6 +68,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayListNameSort.Domain\PlayListNameSort.Domain.csproj">
+      <Project>{eb9a57ce-6ddb-4bc2-a064-0482ec75282c}</Project>
+      <Name>PlayListNameSort.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
