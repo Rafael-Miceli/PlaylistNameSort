@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistNameSortTests", "SpotifyTest\PlaylistNameSortTests.csproj", "{ACE9FE43-2569-48DC-B04A-CFED2453525F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayListNameSort.Domain", "PlayListNameSort.Domain\PlayListNameSort.Domain.csproj", "{EB9A57CE-6DDB-4BC2-A064-0482EC75282C}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PlaylistNameSort.Web", "PlaylistNameSort.Web\PlaylistNameSort.Web.kproj", "{3CD306FD-01B7-468A-96FA-5E32C1877F85}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistNameSort.Mvc", "PlaylistNameSort.Mvc\PlaylistNameSort.Mvc.csproj", "{2F78808D-8705-4111-A8A9-C7433090B7DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistNameSort.Mvc.Tests", "PlaylistNameSort.Mvc.Tests\PlaylistNameSort.Mvc.Tests.csproj", "{9BB75122-0721-4DDC-B6C2-0FD15F002DDF}"
@@ -24,18 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ACE9FE43-2569-48DC-B04A-CFED2453525F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACE9FE43-2569-48DC-B04A-CFED2453525F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACE9FE43-2569-48DC-B04A-CFED2453525F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACE9FE43-2569-48DC-B04A-CFED2453525F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB9A57CE-6DDB-4BC2-A064-0482EC75282C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB9A57CE-6DDB-4BC2-A064-0482EC75282C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB9A57CE-6DDB-4BC2-A064-0482EC75282C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB9A57CE-6DDB-4BC2-A064-0482EC75282C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CD306FD-01B7-468A-96FA-5E32C1877F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CD306FD-01B7-468A-96FA-5E32C1877F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CD306FD-01B7-468A-96FA-5E32C1877F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CD306FD-01B7-468A-96FA-5E32C1877F85}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F78808D-8705-4111-A8A9-C7433090B7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F78808D-8705-4111-A8A9-C7433090B7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F78808D-8705-4111-A8A9-C7433090B7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU

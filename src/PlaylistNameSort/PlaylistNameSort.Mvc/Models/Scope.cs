@@ -34,4 +34,23 @@ namespace PlaylistNameSort.Mvc.Models
         [StringAttribute("user-read-birthdate")]
         USER_READ_BIRTHDATE = 2048
     }
+
+    public static class ScopeUtil
+    {
+        public static string GetStringAttribute<T>(this T en, String separator) where T : struct, IConvertible
+        {
+            Enum e = (Enum)(object)en;
+            IEnumerable<StringAttribute> attributes =
+            Enum.GetValues(typeof(T))
+            .Cast<T>()
+            .Where(v => e.HasFlag((Enum)(object)v))
+            .Select(v => typeof(T).GetField(v.ToString()))
+            .Select(f => f.GetCustomAttributes(typeof(StringAttribute), false)[0])
+            .Cast<StringAttribute>();
+
+            List<String> list = new List<String>();
+            attributes.ToList().ForEach((element) => list.Add(element.Text));
+            return string.Join(" ", list);
+        }
+    }
 }

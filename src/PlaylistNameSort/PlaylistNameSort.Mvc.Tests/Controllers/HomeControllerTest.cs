@@ -14,34 +14,25 @@ namespace PlaylistNameSort.Mvc.Tests.Controllers
     public class HomeControllerTest
     {
         [Fact]
-        public void Index()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-        }
-
-        [Fact]
-        public void Test_Index_Model_Return_Correct_Values()
+        public void Should_Get_Correct_Spotify_Auth_Uri()
         {
             string expectedClientId = "c2b415ceb2694cb29b34088a69816aea";
             string expectedRedirectUri = "http://localhost";
             string expectedState = "";
             Scope expectedScope = Scope.PLAYLIST_MODIFY_PRIVATE;
 
-            var controller = new HomeController();
-                        
-            var result = (controller.Index() as ViewResult).Model;           
+            string expectedAuthUri = "https://accounts.spotify.com/en/authorize?client_id=" + expectedClientId +
+                "&response_type=token&redirect_uri=" + expectedRedirectUri +
+                "&state=&scope=" + expectedScope.GetStringAttribute(" ") +
+                "&show_dialog=False";
 
-            Assert.Equal(expectedClientId, (result as SpotifyAuthViewModel).ClientId);
-            Assert.Equal(expectedRedirectUri, (result as SpotifyAuthViewModel).RedirectUri);
-            Assert.Equal(expectedState, (result as SpotifyAuthViewModel).State);
-            Assert.Equal(expectedScope, (result as SpotifyAuthViewModel).Scope);
+            SpotifyAuthViewModel spotifyAuthViewModel = new SpotifyAuthViewModel(expectedClientId, expectedRedirectUri, expectedState, expectedScope);
+
+            var sut = new HomeController(spotifyAuthViewModel);
+
+            var result = sut.Index() as ViewResult;
+
+            Assert.Equal(expectedAuthUri, result.ViewBag.AuthUri);
         }        
     }
 }
