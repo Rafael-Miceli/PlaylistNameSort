@@ -56,15 +56,22 @@ namespace PlaylistNameSort.Mvc.App_Start
             }
         }
 
+        public static void RegisterRootUrl(string rootUrl)
+        {
+
+        }
+
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
-        {
+        {   
+            //string redirectUri = ConfigurationManager().
+
             kernel.Bind(typeof(SpotifyAuthViewModel)).To(typeof(SpotifyAuthViewModel))
                 .WithConstructorArgument("clientId", "c2b415ceb2694cb29b34088a69816aea")
-                .WithConstructorArgument("redirectUri", "http://localhost")
+                .WithConstructorArgument("redirectUri", "http://localhost:12029/Home/GenerateNameSortList")
                 .WithConstructorArgument("state", "")
                 .WithConstructorArgument("scope", Scope.PLAYLIST_MODIFY_PRIVATE);
         }        

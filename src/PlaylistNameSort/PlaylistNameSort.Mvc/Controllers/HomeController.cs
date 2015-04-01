@@ -12,7 +12,7 @@ namespace PlaylistNameSort.Mvc.Controllers
         private readonly SpotifyAuthViewModel _spotifyAuthViewModel;
 
         public HomeController(SpotifyAuthViewModel spotifyAuthViewModel)
-        {
+        {            
             _spotifyAuthViewModel = spotifyAuthViewModel;
         }
 
@@ -21,6 +21,16 @@ namespace PlaylistNameSort.Mvc.Controllers
             ViewBag.AuthUri = _spotifyAuthViewModel.GetAuthUri();
 
             return View();
-        }                
+        }
+
+        public ActionResult GenerateNameSortList(string access_token, string token_type, string expires_in, string state)
+        {
+            if (string.IsNullOrEmpty(access_token))
+                return View();
+            
+
+            
+            return View();
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace PlaylistNameSort.Mvc.Tests.Models
         [Fact]
         public void Should_Format_Correct_Spotify_Auth_Uri()
         {
-            string expectedClientId = "c2b415ceb2694cb29b34088a69816aea";
+            string expectedClientId = "c2b415ceb2694cb29b34088a69816aea";            
             string expectedRedirectUri = "http://localhost";
             string expectedState = "";
             Scope expectedScope = Scope.PLAYLIST_MODIFY_PRIVATE;
