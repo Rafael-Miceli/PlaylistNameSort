@@ -33,6 +33,12 @@ namespace PlaylistNameSort.Mvc.Tests.Controllers
             var result = sut.Index() as ViewResult;
 
             Assert.Equal(expectedAuthUri, result.ViewBag.AuthUri);
+        }
+
+        [Fact]
+        public void Should_Get_Generated_Playlist_Model()
+        {
+
         }        
     }
 }
