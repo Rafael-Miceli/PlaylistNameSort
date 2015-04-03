@@ -27,10 +27,22 @@ namespace PlaylistNameSort.Mvc.Controllers
         {
             if (string.IsNullOrEmpty(access_token))
                 return View();
-            
 
-            
-            return View();
+            var spotifyService = new SpotifyService(access_token);
+            //Get user_id and user displayName
+            SpotifyUser spotifyUser = spotifyService.GetUserProfile();
+
+            //Get user playlists ids
+            List<string> playlistsIds = spotifyService.GetPlaylistsIds(spotifyUser.UserId);
+
+            //Get all tracks from user
+            List<string> tracks = spotifyService.GetTracksAndArtistsFromPlaylists(spotifyUser.UserId, playlistsIds);
+
+            //Generate the new playlist 
+            List<string> newPlayList = spotifyService.GenerateNewPlaylist(spotifyUser.DisplayName, tracks);
+
+
+            return View(newPlayList);
         }
     }
 }

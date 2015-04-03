@@ -7,12 +7,14 @@ using PlaylistNameSort.Mvc;
 using PlaylistNameSort.Mvc.Controllers;
 using Xunit;
 using PlaylistNameSort.Mvc.Models;
+using System.Threading.Tasks;
 
 namespace PlaylistNameSort.Mvc.Tests.Controllers
 {
     
     public class HomeControllerTest
-    {
+    {        
+
         [Fact]
         public void Should_Get_Correct_Spotify_Auth_Uri()
         {
@@ -35,10 +37,6 @@ namespace PlaylistNameSort.Mvc.Tests.Controllers
             Assert.Equal(expectedAuthUri, result.ViewBag.AuthUri);
         }
 
-        [Fact]
-        public void Should_Get_Generated_Playlist_Model()
-        {
-
-        }        
+        
     }
 }

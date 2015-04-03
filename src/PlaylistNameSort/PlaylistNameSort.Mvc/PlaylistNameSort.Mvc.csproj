@@ -128,10 +128,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Playlists.cs" />
     <Compile Include="Models\Scope.cs" />
     <Compile Include="Models\SpotifyAuthViewModel.cs" />
+    <Compile Include="Models\SpotifyUser.cs" />
     <Compile Include="Models\StringAttribute.cs" />
+    <Compile Include="Models\Tracks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpotifyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
