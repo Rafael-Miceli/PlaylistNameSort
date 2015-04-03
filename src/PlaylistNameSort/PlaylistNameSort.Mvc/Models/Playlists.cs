@@ -18,5 +18,7 @@ namespace PlaylistNameSort.Mvc.Models
         public String Id { get; set; }
         [JsonProperty("name")]
         public String Name { get; set; }
+        [JsonProperty("owner")]
+        public PublicProfile Owner { get; set; }
     }
 }

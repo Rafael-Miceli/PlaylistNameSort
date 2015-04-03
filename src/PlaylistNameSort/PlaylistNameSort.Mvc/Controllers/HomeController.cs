@@ -33,10 +33,10 @@ namespace PlaylistNameSort.Mvc.Controllers
             SpotifyUser spotifyUser = spotifyService.GetUserProfile();
 
             //Get user playlists ids
-            List<string> playlistsIds = spotifyService.GetPlaylistsIds(spotifyUser.UserId);
+            Playlists playlists = spotifyService.GetPlaylists(spotifyUser.UserId);
 
             //Get all tracks from user
-            List<string> tracks = spotifyService.GetTracksAndArtistsFromPlaylists(spotifyUser.UserId, playlistsIds);
+            List<string> tracks = spotifyService.GetTracksAndArtistsFromPlaylists(playlists);
 
             //Generate the new playlist 
             List<string> newPlayList = spotifyService.GenerateNewPlaylist(spotifyUser.DisplayName, tracks);

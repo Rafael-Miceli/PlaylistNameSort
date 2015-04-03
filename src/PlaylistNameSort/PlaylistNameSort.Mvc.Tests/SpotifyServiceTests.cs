@@ -10,7 +10,7 @@ namespace PlaylistNameSort.Mvc.Tests
 {
     public class SpotifyServiceTests
     {
-        private string _token = "BQAa4YmMx8SxZ0ABzGDe-oDeYmeiB76sJD-M4fm-fpB6F3MsRV0K53Lr0IcuQcRQczz5wy4cQot-EKL2aPfLDZpeCh1hH5hbs2JN1T_g4XEE0XZmBaHCFqZm6Jyte29Z8v-4cVLyVZRcFFP7jJ_o_V8EvXIHynSbAAMa4I8r09DttmeFUGZLS8CE9cSt71buYvueJWgLUd_1lJc0Njbhe91mIRO81EbuPYnGXWgpR805FUCjgERAPbQRBfE5ViIvWag";
+        private string _token = "BQA-mPFhxqGFP1Ws-R8Kpmy5U509DMmg3tfq2SOLNQWwIWfDqGx_cUxaelE-MaUXc1ccvd02Fqm8cGELgsAbOXEmyHZ_H1HE-HPE1TKASR8DU5v5AqiMquCJk9qUF_g_ncwnJUAVf_mjcZfYiO5tfToZRZrJx8NnzeA";
                 
         [Fact]
         public void Should_Get_User_Profile()

@@ -50,6 +50,14 @@ namespace PlaylistNameSort.Mvc
             return playlistIds;
         }
 
+        public Playlists GetPlaylists(string userId)
+        {
+            string url = string.Format("https://api.spotify.com/v1/users/{0}/playlists", userId);
+            Playlists playlists = GetSpotifyType<Playlists>(url);            
+
+            return playlists;
+        }
+
         public SpotifyUser GetUserProfile()
         {
             string url = "https://api.spotify.com/v1/me";
@@ -57,14 +65,17 @@ namespace PlaylistNameSort.Mvc
             return spotifyUser;
         }
 
-        public List<string> GetTracksAndArtistsFromPlaylists(string userId, List<string> playlistsId)
+        public List<string> GetTracksAndArtistsFromPlaylists(string ownerId, List<string> playlistsId)
         {
             List<string> listOfTracAndArtistsName = new List<string>();
 
             foreach (var playlistId in playlistsId)
             {
-                string url = string.Format("https://api.spotify.com/v1/users/" + userId + "/playlists/" + playlistId + "/tracks");
-                Tracks tracks = GetSpotifyType<Tracks>(url);                
+                string url = string.Format("https://api.spotify.com/v1/users/" + ownerId + "/playlists/" + playlistId + "/tracks");
+                Tracks tracks = GetSpotifyType<Tracks>(url);
+
+                if (tracks == null)
+                    continue;
 
                 foreach (var track in tracks.Items)
                 {
@@ -79,6 +90,35 @@ namespace PlaylistNameSort.Mvc
                     listOfTracAndArtistsName.Add(music + " by " + artists);
                 }
             }            
+
+            return listOfTracAndArtistsName;
+        }
+
+        public List<string> GetTracksAndArtistsFromPlaylists(Playlists playlists)
+        {
+            List<string> listOfTracAndArtistsName = new List<string>();
+
+            foreach (var playlist in playlists.Items)
+            {
+                string url = string.Format("https://api.spotify.com/v1/users/" + playlist.Owner.Id + "/playlists/" + playlist.Id + "/tracks");
+                Tracks tracks = GetSpotifyType<Tracks>(url);
+
+                if (tracks == null)
+                    continue;
+
+                foreach (var track in tracks.Items)
+                {
+                    string music = track.FullTrack.Name;
+                    string artists = "";
+
+                    foreach (var artist in track.FullTrack.Artists)
+                    {
+                        artists += artist.Name + " ";
+                    }
+
+                    listOfTracAndArtistsName.Add(music + " by " + artists);
+                }
+            }
 
             return listOfTracAndArtistsName;
         }
@@ -106,6 +146,10 @@ namespace PlaylistNameSort.Mvc
                     }
                 }
                 return type;
+            }
+            catch (WebException ex)
+            {
+                return default(T);
             }
             catch (Exception ex)
             {

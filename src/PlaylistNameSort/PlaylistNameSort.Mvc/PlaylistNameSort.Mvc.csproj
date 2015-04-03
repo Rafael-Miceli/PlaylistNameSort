@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Playlists.cs" />
+    <Compile Include="Models\PublicProfile.cs" />
     <Compile Include="Models\Scope.cs" />
     <Compile Include="Models\SpotifyAuthViewModel.cs" />
     <Compile Include="Models\SpotifyUser.cs" />
