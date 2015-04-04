@@ -26,13 +26,14 @@
     <tbody>
         @if (Model != null)
         {
-            @*@{int count = 0; }*@
+            int count = 0;
+            string userName = ViewBag.UserName.ToString().Replace(" ", "");
 
-                foreach (var item in @Model)
-                {
+            foreach (var item in @Model)
+            {
                 <tr>
                     <td>
-                        @*//@ViewBag.UserName[count++];*@
+                        @userName[count++]
                     </td>
                     <td>
                         @item
