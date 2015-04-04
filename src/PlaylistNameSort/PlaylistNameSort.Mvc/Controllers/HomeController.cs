@@ -10,10 +10,12 @@ namespace PlaylistNameSort.Mvc.Controllers
     public class HomeController : Controller
     {
         private readonly SpotifyAuthViewModel _spotifyAuthViewModel;
+        private readonly ISpotifyApi _spotifyApi;
 
-        public HomeController(SpotifyAuthViewModel spotifyAuthViewModel)
+        public HomeController(SpotifyAuthViewModel spotifyAuthViewModel, ISpotifyApi spotifyApi)
         {            
             _spotifyAuthViewModel = spotifyAuthViewModel;
+            _spotifyApi = spotifyApi;
         }
 
         public ActionResult Index()
@@ -23,26 +25,39 @@ namespace PlaylistNameSort.Mvc.Controllers
             return View();
         }
 
-        public ActionResult GenerateNameSortList(string access_token, string token_type, string expires_in, string state)
+        public ActionResult GenerateNameSortList(string access_token, string error)
         {
+            if (error != null || error == "access_denied")
+                return View("Error");
+
             if (string.IsNullOrEmpty(access_token))
                 return View();
 
-            var spotifyService = new SpotifyService(access_token);
-            //Get user_id and user displayName
-            SpotifyUser spotifyUser = spotifyService.GetUserProfile();
+            try
+            {
+                _spotifyApi.Token = access_token;
+                SpotifyService spotifyService = new SpotifyService(_spotifyApi);
+                //Get user_id and user displayName
+                SpotifyUser spotifyUser = spotifyService.GetUserProfile();
+                ViewBag.UserName = spotifyUser.DisplayName;
 
-            //Get user playlists ids
-            Playlists playlists = spotifyService.GetPlaylists(spotifyUser.UserId);
+                //Get user playlists ids
+                Playlists playlists = spotifyService.GetPlaylists(spotifyUser.UserId);
 
-            //Get all tracks from user
-            List<string> tracks = spotifyService.GetTracksAndArtistsFromPlaylists(playlists);
+                //Get all tracks from user
+                List<string> tracks = spotifyService.GetTracksAndArtistsFromPlaylists(playlists);
 
-            //Generate the new playlist 
-            List<string> newPlayList = spotifyService.GenerateNewPlaylist(spotifyUser.DisplayName, tracks);
+                //Generate the new playlist 
+                List<string> newPlayList = spotifyService.GenerateNewPlaylist(spotifyUser.DisplayName, tracks);
 
 
-            return View(newPlayList);
+                return View(newPlayList);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+            
         }
     }
 }

@@ -128,6 +128,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ISpotfyApi.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Playlists.cs" />
     <Compile Include="Models\PublicProfile.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Models\StringAttribute.cs" />
     <Compile Include="Models\Tracks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpotifyApi.cs" />
     <Compile Include="SpotifyService.cs" />
   </ItemGroup>
   <ItemGroup>

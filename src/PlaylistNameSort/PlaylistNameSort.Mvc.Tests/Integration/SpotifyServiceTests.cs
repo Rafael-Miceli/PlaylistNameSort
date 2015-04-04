@@ -6,19 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PlaylistNameSort.Mvc.Tests
+namespace PlaylistNameSort.Mvc.Tests.Integration
 {
     public class SpotifyServiceTests
     {
-        private string _token = "BQA-mPFhxqGFP1Ws-R8Kpmy5U509DMmg3tfq2SOLNQWwIWfDqGx_cUxaelE-MaUXc1ccvd02Fqm8cGELgsAbOXEmyHZ_H1HE-HPE1TKASR8DU5v5AqiMquCJk9qUF_g_ncwnJUAVf_mjcZfYiO5tfToZRZrJx8NnzeA";
-                
+        private string _token = "Place-A-Token-Here";             
+        
         [Fact]
         public void Should_Get_User_Profile()
         {
             string expectedUserId = "rafael-miceli";
             string expectedUserName = "Rafael Miceli";
 
-            var sut = new SpotifyService(_token);
+            var spotifyApi = new SpotifyApi(_token);
+            var sut = new SpotifyService(spotifyApi);
 
             SpotifyUser spotifyUser = sut.GetUserProfile();
 
@@ -45,7 +46,8 @@ namespace PlaylistNameSort.Mvc.Tests
                 "iTunes"
             };
 
-            var sut = new SpotifyService(_token);
+            var spotifyApi = new SpotifyApi(_token);
+            var sut = new SpotifyService(spotifyApi);
 
             List<string> playlistNames = sut.GetPlaylistsName(userId);
 
@@ -63,12 +65,24 @@ namespace PlaylistNameSort.Mvc.Tests
                 "The Sweetest Taboo - Remastered by Sade "
             };
 
-            List<string> playlistsId = new List<string> { "0ExbFrTy6ypLj9YYNMTnmd" };
-            string userId = "rafael-miceli";
+            Playlists playlists = new Playlists
+            {
+                Items = new List<Playlist>
+                {
+                    new Playlist {
+                        Id = "0ExbFrTy6ypLj9YYNMTnmd",
+                        Owner = new PublicProfile
+                        {
+                            Id = "spotify"
+                        }
+                    }
+                }
+            };
 
-            var sut = new SpotifyService(_token);
+            var spotifyApi = new SpotifyApi(_token);
+            var sut = new SpotifyService(spotifyApi);
 
-            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(userId, playlistsId);
+            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(playlists);
 
             Assert.Equal(expectedTracks, tracks);
         }
@@ -86,12 +100,31 @@ namespace PlaylistNameSort.Mvc.Tests
                 "Day One by Hans Zimmer "
             };
 
-            List<string> playlistsId = new List<string> { "0hkdKTHJoshkeh4v6leqwZ", "3pKt7A5eKCSuD7AXIbQNQh" };
-            string userId = "rafael-miceli";
+            Playlists playlists = new Playlists
+            {
+                Items = new List<Playlist>
+                {
+                    new Playlist {
+                        Id = "0ExbFrTy6ypLj9YYNMTnmd",
+                        Owner = new PublicProfile
+                        {
+                            Id = "spotify"
+                        }
+                    },
+                    new Playlist {
+                        Id = "0hkdKTHJoshkeh4v6leqwZ",
+                        Owner = new PublicProfile
+                        {
+                            Id = "rafael-miceli"
+                        }
+                    }
+                }
+            };
 
-            var sut = new SpotifyService(_token);
+            var spotifyApi = new SpotifyApi(_token);
+            var sut = new SpotifyService(spotifyApi);
 
-            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(userId, playlistsId);
+            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(playlists);
 
             Assert.Equal(expectedTracks, tracks);
         }
@@ -131,7 +164,8 @@ namespace PlaylistNameSort.Mvc.Tests
 
             string userDisplayName = "Rafael Miceli";
 
-            var sut = new SpotifyService(_token);
+            var spotifyApi = new SpotifyApi(_token);
+            var sut = new SpotifyService(spotifyApi);
 
             List<string> resultTracks = sut.GenerateNewPlaylist(userDisplayName, tracks);
 

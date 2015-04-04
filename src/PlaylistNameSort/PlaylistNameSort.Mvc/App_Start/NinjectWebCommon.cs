@@ -11,6 +11,8 @@ namespace PlaylistNameSort.Mvc.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using PlaylistNameSort.Mvc.Models;
+    using System.Configuration;
+    using System.Web.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -66,12 +68,14 @@ namespace PlaylistNameSort.Mvc.App_Start
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
-        {   
-            //string redirectUri = ConfigurationManager().
+        {
+            //It would be great to get these values from some confi, but cannot access web.config from here
+            string uriCallback = "http://localhost:12029/Home/GenerateNameSortList";
+            string clientId = "c2b415ceb2694cb29b34088a69816aea";
 
             kernel.Bind(typeof(SpotifyAuthViewModel)).To(typeof(SpotifyAuthViewModel))
-                .WithConstructorArgument("clientId", "c2b415ceb2694cb29b34088a69816aea")
-                .WithConstructorArgument("redirectUri", "http://localhost:12029/Home/GenerateNameSortList")
+                .WithConstructorArgument("clientId", clientId)
+                .WithConstructorArgument("redirectUri", uriCallback)
                 .WithConstructorArgument("state", "")
                 .WithConstructorArgument("scope", Scope.PLAYLIST_MODIFY_PRIVATE);
         }        

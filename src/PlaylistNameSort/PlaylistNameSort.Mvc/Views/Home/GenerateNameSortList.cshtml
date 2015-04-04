@@ -26,11 +26,13 @@
     <tbody>
         @if (Model != null)
         {
-            foreach (var item in @Model)
-            {
+            @{int count = 0; }
+
+                foreach (var item in @Model)
+                {
                 <tr>
                     <td>
-                        @item.Substring(0, 1)
+                        @ViewBag.UserName[count++];
                     </td>
                     <td>
                         @item
