@@ -17,7 +17,7 @@ namespace PlaylistNameSort.Mvc.Tests.Models
             string expectedAuthUri = "https://accounts.spotify.com/en/authorize?client_id=" + expectedClientId +
                 "&response_type=token&redirect_uri=" + expectedRedirectUri +
                 "&state=&scope=" + expectedScope.GetStringAttribute(" ") +
-                "&show_dialog=False";
+                "&show_dialog=true";
 
             SpotifyAuthViewModel sut = new SpotifyAuthViewModel(expectedClientId, expectedRedirectUri, expectedState, expectedScope);
 
