@@ -73,6 +73,7 @@ namespace PlaylistNameSort.Mvc.App_Start
             string uriCallback = "http://localhost:12029/Home/GenerateNameSortList";
             string clientId = "c2b415ceb2694cb29b34088a69816aea";
 
+            kernel.Bind(typeof(ISpotifyApi)).To(typeof(SpotifyApi));
             kernel.Bind(typeof(SpotifyAuthViewModel)).To(typeof(SpotifyAuthViewModel))
                 .WithConstructorArgument("clientId", clientId)
                 .WithConstructorArgument("redirectUri", uriCallback)

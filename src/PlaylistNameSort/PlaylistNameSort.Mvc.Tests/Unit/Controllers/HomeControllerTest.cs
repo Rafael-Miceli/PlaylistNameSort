@@ -53,17 +53,19 @@ namespace PlaylistNameSort.Mvc.Tests.Controllers
         }
 
         [Fact, Trait("Category", "Unit")]
-        public void Should_Generate_New_Playlist_When_Token_Is_Not_Null()
+        public void Should_Get_Error_View_When_Token_Is_Not_Valid()
         {
+            string expectedViewName = "Error";
+
             SpotifyAuthViewModel spotifyAuthViewModel = null;
-            var mockedSpotifyApi = new Mock<ISpotifyApi> { DefaultValue = DefaultValue.Mock };
+            var spotifyApi = new SpotifyApi();
 
-            var sut = new HomeController(spotifyAuthViewModel, mockedSpotifyApi.Object);
+            var sut = new HomeController(spotifyAuthViewModel, spotifyApi);
 
-            var result = (sut.GenerateNameSortList("A-Valid-Token", null) as ViewResult).Model;
+            var result = sut.GenerateNameSortList("A-Invalid-Token", null) as ViewResult;
 
-            Assert.True((result as List<string>).Count > 0);
-        }        
+            Assert.Equal(expectedViewName, result.ViewName);
+        }
 
         [Fact, Trait("Category", "Unit")]
         public void Should_Get_Empty_View_When_Token_Is_Null()
