@@ -25,7 +25,7 @@ namespace PlaylistNameSort.Mvc.Models
             return "https://accounts.spotify.com/en/authorize?client_id=" + _clientId +
                 "&response_type=token&redirect_uri=" + _redirectUri +
                 "&state=&scope=" + _scope.GetStringAttribute(" ") +
-                "&show_dialog=False";
+                "&show_dialog=true";
         }
     }
 }
