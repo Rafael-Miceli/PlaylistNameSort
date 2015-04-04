@@ -70,7 +70,7 @@ namespace PlaylistNameSort.Mvc.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             //It would be great to get these values from some confi, but cannot access web.config from here
-            string uriCallback = "http://localhost:12029/Home/GenerateNameSortList";
+            string uriCallback = "http://playlistnamesort.azurewebsites.net/Home/GenerateNameSortList";
             string clientId = "c2b415ceb2694cb29b34088a69816aea";
 
             kernel.Bind(typeof(ISpotifyApi)).To(typeof(SpotifyApi));
