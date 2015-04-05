@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace PlaylistNameSort.Mvc.Models
+namespace PlaylistNameSort.Domain.Models
 {
     public class PublicProfile
     {

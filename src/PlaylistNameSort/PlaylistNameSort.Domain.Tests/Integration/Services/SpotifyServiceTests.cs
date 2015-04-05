@@ -1,4 +1,5 @@
-﻿using PlaylistNameSort.Mvc.Models;
+﻿using PlaylistNameSort.Domain.Models;
+using PlaylistNameSort.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PlaylistNameSort.Mvc.Tests.Integration
+namespace PlaylistNameSort.Domain.Tests.Integration.Services
 {
     public class SpotifyServiceTests
     {

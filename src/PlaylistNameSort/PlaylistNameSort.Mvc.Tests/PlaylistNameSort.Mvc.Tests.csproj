@@ -97,11 +97,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Unit\Models\SpotifyAuthViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\Controllers\HomeControllerTest.cs" />
-    <Compile Include="Integration\SpotifyServiceTests.cs" />
-    <Compile Include="Unit\SpotifyServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -110,6 +107,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PlaylistNameSort.Domain\PlaylistNameSort.Domain.csproj">
+      <Project>{837a07ac-9454-453d-8b8e-62cb8875941c}</Project>
+      <Name>PlaylistNameSort.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlaylistNameSort.Mvc\PlaylistNameSort.Mvc.csproj">
       <Project>{2F78808D-8705-4111-A8A9-C7433090B7DE}</Project>
       <Name>PlaylistNameSort.Mvc</Name>

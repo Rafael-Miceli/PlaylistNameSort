@@ -10,9 +10,11 @@ namespace PlaylistNameSort.Mvc.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using PlaylistNameSort.Mvc.Models;
+    using PlaylistNameSort.Domain.Models;
     using System.Configuration;
     using System.Web.Configuration;
+    using PlaylistNameSort.Domain;
+    using PlaylistNameSort.Domain.Interfaces;
 
     public static class NinjectWebCommon 
     {

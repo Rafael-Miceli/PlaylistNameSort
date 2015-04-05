@@ -1,8 +1,8 @@
-﻿using PlaylistNameSort.Mvc.Models;
+﻿using PlaylistNameSort.Domain.Models;
 using System;
 using Xunit;
 
-namespace PlaylistNameSort.Mvc.Tests.Unit.Models
+namespace PlaylistNameSort.Domain.Tests.Unit.Models
 {
     public class SpotifyAuthViewModelTest
     {

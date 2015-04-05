@@ -1,4 +1,6 @@
-﻿using PlaylistNameSort.Mvc.Models;
+﻿using PlaylistNameSort.Domain.Interfaces;
+using PlaylistNameSort.Domain.Models;
+using PlaylistNameSort.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

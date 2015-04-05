@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PlaylistNameSort.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 
-namespace PlaylistNameSort.Mvc
+namespace PlaylistNameSort.Domain
 {
     public class SpotifyApi : ISpotifyApi
     {

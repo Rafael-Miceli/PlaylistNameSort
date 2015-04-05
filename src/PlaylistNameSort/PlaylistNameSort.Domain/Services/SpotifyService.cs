@@ -1,15 +1,9 @@
-﻿using Newtonsoft.Json;
-using PlaylistNameSort.Mvc.Models;
-using System;
+﻿using PlaylistNameSort.Domain.Interfaces;
+using PlaylistNameSort.Domain.Models;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
-namespace PlaylistNameSort.Mvc
+namespace PlaylistNameSort.Domain.Services
 {
     public class SpotifyService
     {

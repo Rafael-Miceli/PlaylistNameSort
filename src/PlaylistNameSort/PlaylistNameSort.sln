@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{03B8D1
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistNameSort.Domain", "PlaylistNameSort.Domain\PlaylistNameSort.Domain.csproj", "{837A07AC-9454-453D-8B8E-62CB8875941C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaylistNameSort.Domain.Tests", "PlaylistNameSort.Domain.Tests\PlaylistNameSort.Domain.Tests.csproj", "{84003369-C2EE-49E4-8A52-2A06C5514ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{9BB75122-0721-4DDC-B6C2-0FD15F002DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB75122-0721-4DDC-B6C2-0FD15F002DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB75122-0721-4DDC-B6C2-0FD15F002DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837A07AC-9454-453D-8B8E-62CB8875941C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837A07AC-9454-453D-8B8E-62CB8875941C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837A07AC-9454-453D-8B8E-62CB8875941C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837A07AC-9454-453D-8B8E-62CB8875941C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84003369-C2EE-49E4-8A52-2A06C5514ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84003369-C2EE-49E4-8A52-2A06C5514ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84003369-C2EE-49E4-8A52-2A06C5514ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84003369-C2EE-49E4-8A52-2A06C5514ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlaylistNameSort.Mvc.Models
+namespace PlaylistNameSort.Domain.Models
 {
     [Flags]
     public enum Scope

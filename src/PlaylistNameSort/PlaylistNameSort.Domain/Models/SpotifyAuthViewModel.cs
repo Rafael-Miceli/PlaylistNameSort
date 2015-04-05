@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PlaylistNameSort.Mvc.Models
+namespace PlaylistNameSort.Domain.Models
 {
     public class SpotifyAuthViewModel
     {

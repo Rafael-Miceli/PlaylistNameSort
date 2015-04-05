@@ -1,4 +1,4 @@
-﻿namespace PlaylistNameSort.Mvc
+﻿namespace PlaylistNameSort.Domain.Interfaces
 {
     public interface ISpotifyApi
     {

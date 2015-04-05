@@ -5,8 +5,10 @@ using System.Text;
 using System.Web.Mvc;
 using PlaylistNameSort.Mvc.Controllers;
 using Xunit;
-using PlaylistNameSort.Mvc.Models;
+using PlaylistNameSort.Domain.Models;
 using Moq;
+using PlaylistNameSort.Domain.Interfaces;
+using PlaylistNameSort.Domain;
 
 namespace PlaylistNameSort.Mvc.Tests.Unit.Controllers
 {
