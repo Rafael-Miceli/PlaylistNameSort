@@ -103,7 +103,21 @@ namespace PlaylistNameSort.Mvc.Tests.Unit
                 }
             };
 
-            Tracks tracksToReturn = new Tracks
+            Tracks tracksToReturn = BuildExpectedTracks();
+
+            var mockedSpotifyApi = new Mock<ISpotifyApi>();
+            mockedSpotifyApi.Setup(x => x.GetSpotifyType<Tracks>(It.IsAny<string>())).Returns(tracksToReturn);
+
+            var sut = new SpotifyService(mockedSpotifyApi.Object);
+
+            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(playlists);
+
+            Assert.Equal(expectedTracks, tracks);
+        }
+
+        private Tracks BuildExpectedTracks()
+        {
+            return new Tracks
             {
                 Items = new List<Track>
                 {
@@ -137,15 +151,6 @@ namespace PlaylistNameSort.Mvc.Tests.Unit
                     }
                 }
             };
-
-            var mockedSpotifyApi = new Mock<ISpotifyApi>();
-            mockedSpotifyApi.Setup(x => x.GetSpotifyType<Tracks>(It.IsAny<string>())).Returns(tracksToReturn);
-
-            var sut = new SpotifyService(mockedSpotifyApi.Object);
-
-            List<string> tracks = sut.GetTracksAndArtistsFromPlaylists(playlists);
-
-            Assert.Equal(expectedTracks, tracks);
         }
 
         [Fact, Trait("Category", "Unit")]

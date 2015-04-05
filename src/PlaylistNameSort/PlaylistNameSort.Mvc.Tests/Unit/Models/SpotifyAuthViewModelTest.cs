@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace PlaylistNameSort.Mvc.Tests.Models
+namespace PlaylistNameSort.Mvc.Tests.Unit.Models
 {
     public class SpotifyAuthViewModelTest
     {

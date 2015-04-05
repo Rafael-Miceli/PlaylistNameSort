@@ -80,7 +80,8 @@ namespace PlaylistNameSort.Mvc
 
         public List<string> GenerateNewPlaylist(string displayName, List<string> tracksAndArtists)
         {
-            var trimedName = displayName.Replace(" ", "").ToLower();            
+            var trimedName = displayName.Replace(" ", "").ToLower();
+            var distinctTracksAndArtists = tracksAndArtists.Distinct();          
 
             List<string> newPlaylistByNameLetter = new List<string>();
 
@@ -88,7 +89,7 @@ namespace PlaylistNameSort.Mvc
             {
                 string trackName = "";
 
-                foreach (var track in tracksAndArtists)
+                foreach (var track in distinctTracksAndArtists)
                 {
                     if (track.ToLower().StartsWith(letter.ToString()))
                     {
