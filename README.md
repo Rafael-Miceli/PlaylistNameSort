@@ -1,2 +1,2 @@
 # PlaylistNameSort
-An application that creates a new playlist for you in your spotify, based in the letters of your name
+An application that generates a new playlist for you, with songs from your spotify playlist, based in the letters of your name
